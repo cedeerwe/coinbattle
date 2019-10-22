@@ -41,7 +41,11 @@ class App: RComponent<RProps, AppState>() {
             (player1.sequence.isEmpty()) -> p {+"First sequence has to be non-empty."}
             (player2.sequence.isEmpty()) -> p {+"Second sequence has to be non-empty."}
             else -> Graphviz {
-                attrs.dot = player1.battleGraph(player2).toDot()
+                attrs.dot = player1.battleGraph(player2).toDot(LR=true)
+                attrs.options = object {
+                    var width = null
+                    var height = null
+                }
             }
         }
     }
